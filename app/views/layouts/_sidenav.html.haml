@@ -1,3 +1,7 @@
+- if admin_signed_in?
+  %h4 Dashboard
+  %ul.nav.nav-tabs.nav-stacked
+    %li= link_to "New Article", new_article_path
 %h4 Recent Articles
 %ul.nav.nav-tabs.nav-stacked
   - @latest.each do |article|

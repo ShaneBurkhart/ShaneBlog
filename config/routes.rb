@@ -1,8 +1,8 @@
 ShaneBlog::Application.routes.draw do
-  root :to => "articles#index"
-  devise_for :users
+  devise_for :admin, only: ["sessions"]
 
-  resources :articles, only: ["show"]
+  root :to => "articles#index"
+  resources :articles, except: ["index"]
   match "articles_archive", to: "articles#list"
 
 end

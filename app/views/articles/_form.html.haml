@@ -1,0 +1,4 @@
+= simple_form_for @article do |f|
+  = f.input :title, input_html: { class: "span8", id: "article-title" }
+  = f.input :body, input_html: { class: "span8", id: "article-body" }
+  = f.submit
