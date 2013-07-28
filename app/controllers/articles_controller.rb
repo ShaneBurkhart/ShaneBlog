@@ -50,8 +50,8 @@ class ArticlesController < ApplicationController
     @article = Article.new params[:article]
     respond_to do |format|
       if @article.save
-        format.html # show.html.erb
-        format.json { render json: @article }
+        format.html { redirect_to root_path, notice: 'Article was successfully created.' }
+        format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
         format.json { render json: @article.errors, status: :unprocessable_entity }
