@@ -10,9 +10,11 @@
 puts 'DEFAULT USERS'
 user = Admin.find_or_create_by_email :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 
-100.times do
+tags = ["Projects", "Startups", "Articles", "Me"]
+100.times do |i|
   Article.create(
     title: "Some Title",
-    body: "Body Test.... Body Test.... Body Test.... Body Test.... Body Test...."
+    body: "Body Test.... Body Test.... Body Test.... Body Test.... Body Test....",
+    tag: tags[i % tags.count]
   )
 end

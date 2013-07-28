@@ -1,4 +1,4 @@
-%h1 Articles
+%h1= @tag
 = will_paginate @articles, renderer: BootstrapPagination::Rails
 %hr
 - @articles.take(15).each do |article|

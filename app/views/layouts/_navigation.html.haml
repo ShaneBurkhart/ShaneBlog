@@ -1,12 +1,14 @@
 = link_to "Shane Burkhart", root_path, :class => 'brand'
 %ul.nav.pull-right
   %li
-    = link_to "Projects", "#"
+    = link_to "Articles", root_path
   %li
-    = link_to "Startups", "#"
+    = link_to "Projects", root_path + "?tag=Projects"
+  %li
+    = link_to "Startups", root_path + "?tag=Startups"
   %li
     = link_to "Github", "https://github.com/ShaneBurkhart"
   %li
     = link_to "Twitter", "https://twitter.com/DonkkaShane"
   %li
-    = link_to "About Me", "#"
+    = link_to "About Me", root_path + "?tag=AboutMe"

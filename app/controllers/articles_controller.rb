@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   # GET /articles/
   # GET /articles/.json
   def index
-    @articles = Article.paginate page: params[:page]
+    if @tag != "Articles"
+      @articles = Article.where(tag: @tag).paginate page: params[:page]
+    else
+      @articles = Article.paginate page: params[:page]
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +30,11 @@ class ArticlesController < ApplicationController
   # GET /articles/list
   # GET /articles/list.json
   def list
-    @articles = Article.paginate page: params[:page]
+    if @tag != "Articles"
+      @articles = Article.where(tag: @tag).paginate page: params[:page]
+    else
+      @articles = Article.paginate page: params[:page]
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -71,7 +79,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to listing_path(@article), notice: 'Article was successfully updated.' }
+        format.html { redirect_to article_path(@article), notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

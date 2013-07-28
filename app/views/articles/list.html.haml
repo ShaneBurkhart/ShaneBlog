@@ -1,4 +1,6 @@
-%h1 Articles Archives
+%h1
+  = @tag
+  Archives
 = link_to "Back", root_path
 = will_paginate @articles, renderer: BootstrapPagination::Rails
 %hr
