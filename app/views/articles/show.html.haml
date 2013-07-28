@@ -3,4 +3,4 @@
 %hr
 .row
   .span12
-    = @article.body
+    = @parser.render(@article.body).html_safe

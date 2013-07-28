@@ -14,6 +14,9 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'sendgrid'
 gem 'simple_form'
+gem "redcarpet"
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]

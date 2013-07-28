@@ -3,5 +3,6 @@ ShaneBlog::Application.routes.draw do
   devise_for :users
 
   resources :articles, only: ["show"]
+  match "articles_archive", to: "articles#list"
 
 end

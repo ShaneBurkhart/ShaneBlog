@@ -1,8 +1,10 @@
 %h1 Articles
+= will_paginate @articles, renderer: BootstrapPagination::Rails
 %hr
 - @articles.take(15).each do |article|
   %h2= link_to article.title, article_path(article)
   .row
     .span12
-      = article.body
+      = @parser.render(article.body).html_safe
   %hr
+= will_paginate @articles, renderer: BootstrapPagination::Rails

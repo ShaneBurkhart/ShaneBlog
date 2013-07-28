@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # GET /articles/
   # GET /articles/.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate page: params[:page]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -18,6 +18,17 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }
+    end
+  end
+
+  # GET /articles/list
+  # GET /articles/list.json
+  def list
+    @articles = Article.paginate page: params[:page]
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @articles }
     end
   end
 end

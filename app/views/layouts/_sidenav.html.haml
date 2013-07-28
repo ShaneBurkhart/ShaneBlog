@@ -1,3 +1,7 @@
+%h4 Recent Articles
 %ul.nav.nav-tabs.nav-stacked
   - @latest.each do |article|
     %li= link_to article.title, article_path(article)
+%h4 Archives
+%ul.nav.nav-tabs.nav-stacked
+  %li= link_to "Browse All Articles", articles_archive_path
