@@ -2,8 +2,8 @@
 %html
   %head
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Shaneblog"
-      %meta{:content => content_for?(:description) ? yield(:description) : "Shaneblog", :name => "description"}
+      %title= content_for?(:title) ? yield(:title) : "Shane Burkhart"
+      %meta{:content => content_for?(:description) ? yield(:description) : "Shane Burkhart", :name => "description"}
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
         = csrf_meta_tags
@@ -15,11 +15,12 @@
           = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
+        .row
+          .span3
+            = render "layouts/sidenav"
+          .span9
+            = render 'layouts/messages'
+            = yield
+        %footer
       / ! end of .container
     / ! end of #main
