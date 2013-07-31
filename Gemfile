@@ -19,6 +19,7 @@ gem 'will_paginate-bootstrap'
 gem 'showdown-rails'
 group :production do
   gem 'pg'
+  gem 'newrelic_rpm'
 end
 group :development do
   gem 'better_errors'
