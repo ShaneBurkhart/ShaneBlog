@@ -3,7 +3,7 @@
 %hr
 - @articles.take(15).each do |article|
   %h2= link_to article.title, article_path(article)
-  .row
+  .row-fluid
     .span12
       = @parser.render(article.body).html_safe
   %hr
