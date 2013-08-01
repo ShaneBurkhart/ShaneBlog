@@ -5,9 +5,9 @@ class ArticlesController < ApplicationController
   # GET /articles/.json
   def index
     if @tag != "Articles"
-      @articles = Article.where("tag like ?", "#{@tag}%").order("created_at DESC").paginate page: params[:page]
+      @articles = Article.where("title like ?", "%#{params[:search]}%").where("tag like ?", "#{@tag}%").order("created_at DESC").paginate page: params[:page]
     else
-      @articles = Article.order("created_at DESC").paginate page: params[:page]
+      @articles = Article.where("title like ?", "%#{params[:search]}%").order("created_at DESC").paginate page: params[:page]
     end
 
     respond_to do |format|
@@ -31,9 +31,9 @@ class ArticlesController < ApplicationController
   # GET /articles/list.json
   def list
     if @tag != "Articles"
-      @articles = Article.where(tag: @tag).paginate page: params[:page]
+      @articles = Article.where("title like ?", "%#{params[:search]}%").where("tag like ?", "#{@tag}%").order("created_at DESC").paginate page: params[:page]
     else
-      @articles = Article.paginate page: params[:page]
+      @articles = Article.where("title like ?", "%#{params[:search]}%").order("created_at DESC").paginate page: params[:page]
     end
 
     respond_to do |format|

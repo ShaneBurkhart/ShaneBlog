@@ -1,6 +1,9 @@
 %h1
   = @tag
   Archives
+= form_tag articles_archive_path, method: :get, class: "form-inline search-form" do
+  = text_field_tag :search, params[:search], class: "input-large", placeholder: "Search Articles"
+  = submit_tag "Search", class: "btn btn-primary", name: nil
 = link_to "Back", root_path
 = will_paginate @articles, renderer: BootstrapPagination::Rails
 %hr
