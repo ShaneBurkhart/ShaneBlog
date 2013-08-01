@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles/.json
   def index
     if @tag != "Articles"
-      @articles = Article.where(tag: @tag).order("created_at DESC").paginate page: params[:page]
+      @articles = Article.where("tag like ?", "#{@tag}%").order("created_at DESC").paginate page: params[:page]
     else
       @articles = Article.order("created_at DESC").paginate page: params[:page]
     end

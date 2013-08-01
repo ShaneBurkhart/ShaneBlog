@@ -17,7 +17,7 @@ class Article < ActiveRecord::Base
 
   private
     def check_tag
-      Article.tags.each{|t| return if tag == t}
+      Article.tags.each{|t| return if tag.include?(t)}
       errors.add(:tag, "Not a valid tag!")
     end
 end

@@ -3,6 +3,10 @@
 %hr
 - @articles.take(15).each do |article|
   %h2= link_to article.title, article_path(article)
+  %p.lead.muted= article.tag
+  %p.muted
+    = distance_of_time_in_words Time.now, article.created_at
+    ago
   .row-fluid
     .span12
       = @parser.render(article.body).html_safe

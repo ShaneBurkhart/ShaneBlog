@@ -1,5 +1,8 @@
 %h1= @article.title
-%p.lead= @article.tag
+%p.lead.muted= @article.tag
+%p.muted
+  = distance_of_time_in_words Time.now, @article.created_at
+  ago
 - if admin_signed_in?
   = link_to "Edit Article", edit_article_path(@article), class: "btn"
 - else
