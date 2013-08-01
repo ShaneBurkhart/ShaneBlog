@@ -1,5 +1,6 @@
 %h1= @tag
 = form_tag root_path, method: :get, class: "form-inline search-form" do
+  = hidden_field_tag :tag, params[:tag]
   = text_field_tag :search, params[:search], class: "input-large", placeholder: "Search Articles"
   = submit_tag "Search", class: "btn btn-primary", name: nil
 = will_paginate @articles, renderer: BootstrapPagination::Rails
