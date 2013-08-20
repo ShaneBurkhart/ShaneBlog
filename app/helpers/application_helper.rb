@@ -12,5 +12,9 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def gravatar_url
+    hash = Digest::MD5.hexdigest("shaneburkhart@gmail.com")
+    "http://www.gravatar.com/avatar/#{hash}?s=200&d=mm"
+  end
 
 end
